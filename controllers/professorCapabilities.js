@@ -3,7 +3,7 @@ const Availability = require('../models/Availability');
 // Set or update availability for a professor
 
 exports.setAvailability = async (req, res) => {
-    const { professorId, availableeSlots } = req.body;
+    const { professorId, availableSlots } = req.body;
 
     if (!professorId || !availableSlots || availableSlots.length === 0) {
         return res.status(400).json({ error: "Professor ID and available slots are required" });
