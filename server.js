@@ -5,6 +5,16 @@ require("dotenv").config();
 const app = express();
 app.use(express.json());
 
+// Import routes
+const authRoutes = require("./routes/authRoutes");
+const professorRoutes = require("./routes/professorRoutes");
+const studentRoutes = require("./routes/studentRoutes");
+
+// Use routes
+app.use("/api/auth", authRoutes);
+app.use("/api/professors", professorRoutes);
+app.use("/api/students", studentRoutes);
+
 // Basic test route
 app.get("/", (req, res) => {
   res.send("College Appointment API Running");
